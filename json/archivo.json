@@ -1,0 +1,139 @@
+{
+  "estado":[
+    "[None, 1, 0]",
+    "[0, 1, 1]",
+    "[None, None, 0]"
+  ],
+  "puntuacion":5,
+  "evaluacion":10,
+  "jugador":0,
+  "nodos":[
+    {
+      "estado":[
+        "[1, 1, 0]",
+        "[0, 1, 1]",
+        "[None, None, 0]"
+      ],
+      "puntuacion":5,
+      "evaluacion":0,
+      "jugador":1,
+      "nodos":[
+        {
+          "estado":[
+            "[1, 1, 0]",
+            "[0, 1, 1]",
+            "[0, None, 0]"
+          ],
+          "puntuacion":5,
+          "evaluacion":10,
+          "jugador":0,
+          "nodos":[
+            {
+              "estado":[
+                "[1, 1, 0]",
+                "[0, 1, 1]",
+                "[0, 1, 0]"
+              ],
+              "puntuacion":10,
+              "evaluacion":10,
+              "jugador":1,
+              "nodos":[]
+            }
+          ]
+        },
+        {
+          "estado":[
+            "[1, 1, 0]",
+            "[0, 1, 1]",
+            "[None, 0, 0]"
+          ],
+          "puntuacion":0,
+          "evaluacion":0,
+          "jugador":0,
+          "nodos":[
+            {
+              "estado":[
+                "[1, 1, 0]",
+                "[0, 1, 1]",
+                "[1, 0, 0]"
+              ],
+              "puntuacion":0,
+              "evaluacion":0,
+              "jugador":1,
+              "nodos":[]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "estado":[
+        "[None, 1, 0]",
+        "[0, 1, 1]",
+        "[1, None, 0]"
+      ],
+      "puntuacion":5,
+      "evaluacion":0,
+      "jugador":1,
+      "nodos":[
+        {
+          "estado":[
+            "[0, 1, 0]",
+            "[0, 1, 1]",
+            "[1, None, 0]"
+          ],
+          "puntuacion":5,
+          "evaluacion":10,
+          "jugador":0,
+          "nodos":[
+            {
+              "estado":[
+                "[0, 1, 0]",
+                "[0, 1, 1]",
+                "[1, 1, 0]"
+              ],
+              "puntuacion":10,
+              "evaluacion":10,
+              "jugador":1,
+              "nodos":[]
+            }
+          ]
+        },
+        {
+          "estado":[
+            "[None, 1, 0]",
+            "[0, 1, 1]",
+            "[1, 0, 0]"
+          ],
+          "puntuacion":0,
+          "evaluacion":0,
+          "jugador":0,
+          "nodos":[
+            {
+              "estado":[
+                "[1, 1, 0]",
+                "[0, 1, 1]",
+                "[1, 0, 0]"
+              ],
+              "puntuacion":0,
+              "evaluacion":0,
+              "jugador":1,
+              "nodos":[]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "estado":[
+        "[None, 1, 0]",
+        "[0, 1, 1]",
+        "[None, 1, 0]"
+      ],
+      "puntuacion":10,
+      "evaluacion":10,
+      "jugador":1,
+      "nodos":[]
+    }
+  ]
+}

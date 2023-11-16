@@ -8,6 +8,10 @@ class Movimientos:
         self.player = player 
         self.puntuacion(self.rootNode.root_node, self.player)
         nivel = 0
+        if player == 1:
+            self.rootNode.root_node.jugador = 0
+        else:
+            self.rootNode.root_node.jugador = 1
         self.evaluacion = self.generarMovimientos(self.rootNode.root_node, self.player, nivel)
         
     def generarMovimientos(self, root, player, nivel):
@@ -19,6 +23,7 @@ class Movimientos:
         ganador = self.ganador(root.estado)
         if lleno or ganador != None or nivel == 5:
         # if lleno or ganador != None:
+            root.evaluacion = root.puntuacion
             return root.puntuacion
         
         # Genera los nodos hijos con el nuevo estado del tablero
@@ -35,6 +40,7 @@ class Movimientos:
                         nodo = TableroNode(nuevoTablero)
                         # da la puntuacion al nodo
                         self.puntuacion(nodo, player)
+                        nodo.jugador = player
                         # agrega el nodo al root
                         root.new_child_node(nodo)
         
@@ -54,37 +60,10 @@ class Movimientos:
                 puntuacionRetornar = puntuacion
             elif player == 0 and puntuacion < puntuacionRetornar:
                 puntuacionRetornar = puntuacion
+        root.evaluacion = puntuacionRetornar
         return puntuacionRetornar
-            
-    def getRootNode(self):
-        return self.rootNode
     
-    def getEvaluacion(self):
-        return self.evaluacion
-    
-    def ganador(self, tablero):
-        for i in range(3):
-            # Lineas horizontales
-            if tablero[i][0] == tablero[i][1] == tablero[i][2]:
-                return tablero[i][0]
-            # Lineas verticales
-            if tablero[0][i] == tablero[1][i] == tablero[2][i]:
-                return tablero[0][i]
-            
-        # Diagonales
-        if tablero[0][0] == tablero[1][1] == tablero[2][2]:
-            return tablero[1][1]
-        if tablero[0][2] == tablero[1][1] == tablero[2][0]:
-            return tablero[1][1]
-        else:
-            return None
-    
-    def tableroLleno(self, tablero):
-        for fila in tablero:
-            if None in fila:
-                return False
-        return True
-    
+    # da la puntuacion a un nodo
     def puntuacion(self, nodo, player):
         ganador = self.ganador(nodo.estado)
         if ganador != None:
@@ -109,6 +88,31 @@ class Movimientos:
                             nodo.puntuacion = 5
                     else:
                         nodo.puntuacion = 0
+                            
+    # verifica si el tablero está lleno
+    def tableroLleno(self, tablero):
+        for fila in tablero:
+            if None in fila:
+                return False
+        return True
+                        
+    # verifica un tres en linea
+    def ganador(self, tablero):
+        for i in range(3):
+            # Lineas horizontales
+            if tablero[i][0] == tablero[i][1] == tablero[i][2]:
+                return tablero[i][0]
+            # Lineas verticales
+            if tablero[0][i] == tablero[1][i] == tablero[2][i]:
+                return tablero[0][i]
+            
+        # Diagonales
+        if tablero[0][0] == tablero[1][1] == tablero[2][2]:
+            return tablero[1][1]
+        if tablero[0][2] == tablero[1][1] == tablero[2][0]:
+            return tablero[1][1]
+        else:
+            return None
                                     
     # verifica si un jugador es posible ganador con dos en linea
     def esPosibleGanadorConDosEnLinea(self, tablero, player):
@@ -137,3 +141,8 @@ class Movimientos:
         else:
             return False
             
+    def getRootNode(self):
+        return self.rootNode
+    
+    def getEvaluacion(self):
+        return self.evaluacion
