@@ -15,7 +15,7 @@ class Movimientos:
         self.evaluacion = self.generarMovimientos(self.rootNode.root_node, self.player, nivel)
         
     def generarMovimientos(self, root, player, nivel):
-        # Evalua si el tablero está lleno o hay un ganador o si se llegó al nivel 4
+        # Evalua si el tablero está lleno o hay un ganador o si se llegó al nivel 5
         lleno = True
         for fila in root.estado:
             if None in fila:
